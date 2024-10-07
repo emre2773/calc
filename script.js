@@ -2,11 +2,17 @@ const display = document.getElementById("display");
 let currentInput = '';
 let operator = null;
 let firstOperand = null;
+let resultDisplayed = false;  
+
 display.style.fontSize = "4rem";  
 
 
-
 function appendNumber(number) {
+    
+    if (resultDisplayed) {
+        currentInput = '';  
+        resultDisplayed = false;  
+    }
     currentInput += number;
     display.value = currentInput;
 }
@@ -15,8 +21,18 @@ function appendNumber(number) {
 function appendOperator(op) {
     if (firstOperand === null) {
         firstOperand = parseFloat(currentInput);
+
+        if (isNaN(firstOperand)) {
+            display.value = "Error";
+            resetCalculator();
+            return;
+        }
+        
         operator = op;
         currentInput = '';
+    } else if (!resultDisplayed) {
+        calculate(); 
+        operator = op;  
     }
 }
 
@@ -24,6 +40,13 @@ function appendOperator(op) {
 function calculate() {
     if (firstOperand !== null && operator !== null) {
         let secondOperand = parseFloat(currentInput);
+        
+        if (isNaN(secondOperand)) {
+            display.value = "Error";
+            resetCalculator();
+            return;
+        }
+
         let result;
         switch (operator) {
             case '+':
@@ -36,13 +59,20 @@ function calculate() {
                 result = firstOperand * secondOperand;
                 break;
             case '/':
+                if (secondOperand === 0) {
+                    display.value = "Cannot divide by 0";
+                    resetCalculator();
+                    return;
+                }
                 result = firstOperand / secondOperand;
                 break;
         }
+
         display.value = result;
-        currentInput = '';
+        currentInput = result.toString(); 
         firstOperand = null;
         operator = null;
+        resultDisplayed = true;
     }
 }
 
@@ -57,6 +87,7 @@ function resetCalculator() {
     currentInput = '';
     firstOperand = null;
     operator = null;
+    resultDisplayed = false;
     display.value = '';
 }
 
