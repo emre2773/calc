@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="theme1">
+    <div class="container">
+        <div class="header">
+            <span class="calc">calc</span>
+
+        </div>
+        <div class="theme-container">
+            <span class="theme-label">theme</span>
+            <div class="switch">
+                <input type="radio" name="theme" id="theme1" checked>
+                <label for="theme1">1</label>
+                <input type="radio" name="theme" id="theme2">
+                <label for="theme2">2</label>
+                <input type="radio" name="theme" id="theme3">
+                <label for="theme3">3</label>
+                <div class="slider"></div>
+            </div>
+        </div>
+
+        <div class="display">
+            <input type="text" id="display" disabled>
+        </div>
+
+        <div class="buttons">
+            <button class="btn" onclick="appendNumber(7)">7</button>
+            <button class="btn" onclick="appendNumber(8)">8</button>
+            <button class="btn" onclick="appendNumber(9)">9</button>
+            <button class="btn-del" onclick="deleteNumber()">DEL</button>
+            <button class="btn" onclick="appendNumber(4)">4</button>
+            <button class="btn" onclick="appendNumber(5)">5</button>
+            <button class="btn" onclick="appendNumber(6)">6</button>
+            <button class="btn" onclick="appendOperator('+')">+</button>
+            <button class="btn" onclick="appendNumber(1)">1</button>
+            <button class="btn" onclick="appendNumber(2)">2</button>
+            <button class="btn" onclick="appendNumber(3)">3</button>
+            <button class="btn" onclick="appendOperator('-')">-</button>
+            <button class="btn" onclick="appendNumber('.')">.</button>
+            <button class="btn" onclick="appendNumber(0)">0</button>
+            <button class="btn" onclick="appendOperator('/')">/</button>
+            <button class="btn" onclick="appendOperator('*')">x</button>
+            <button class="btn-res" onclick="resetCalculator()">RESET</button>
+            <button class="btn-cal" onclick="calculate()">=</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

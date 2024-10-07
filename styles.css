@@ -1,0 +1,264 @@
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    transition: background-color 0.3s ease;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.calc {
+    position: relative;
+    top: 80px;
+    right: 160px;
+    color: white;
+    font-size: 25px;
+}
+.header {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 350px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.theme-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.theme-label {
+    margin-right: 10px;
+    font-size: 17px;
+    top: 11px;
+    left: 97px;
+    position: relative;
+    color: white;
+}
+
+.switch {
+    display: flex;
+    align-items: center;
+    background-color: #2c3e50;
+    border-radius: 20px;
+    padding: 10px;
+    width: 76px;
+    justify-content: space-between;
+    position: relative;
+    top: 10px;
+    left: 100px;
+}
+
+.switch label {
+    position: absolute;
+    top: -30px; 
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+#theme1 ~ label[for="theme1"] {
+    left: 18px;
+}
+
+#theme2 ~ label[for="theme2"] {
+    left: 47px;
+}
+
+#theme3 ~ label[for="theme3"] {
+    left: 74px;
+}
+
+.slider {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    background-color: #e74c3c;
+    border-radius: 50%;
+    transition: left 0.3s ease;
+}
+
+#theme1:checked ~ .slider {
+    left: 0;
+}
+
+#theme2:checked ~ .slider {
+    left: 34px;
+}
+
+#theme3:checked ~ .slider {
+    left: 63px;
+}
+.display input {
+    width: 370px;
+    height: 80px; 
+    font-size: 3rem; 
+    text-align: right;
+    padding: 10px;
+    border: none;
+    background-color: #ffffff;
+    color: #333;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 350px;
+    width: 100%;
+}
+
+button {
+    height: 60px;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow:  0px 11px rgba(10, 10, 10, 10.100)
+    }
+
+
+body.theme1 .display input {
+    background-color: #2a2a3b;
+    color: white;
+}
+
+body.theme1 .buttons {
+    background-color: #2a2a3b;
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+body.theme1 {
+    background-color: rgb(51, 62, 90);
+}
+
+body.theme1 .btn {
+  background-color:#dfd6bb ;  
+}
+
+body.theme1 .btn-cal {
+    background-color: #e3655b;
+    grid-column: span 2;
+    color: white;
+}
+
+body.theme1 .btn-res {
+    grid-column: span 2;
+    background-color: #6573b8;
+    color: white;
+}
+
+body.theme1 .btn-del {
+    background-color: #8c9eff;
+    color: white;
+}
+body.theme2 .calc{
+    color: black;
+}
+body.theme2 .theme-label{
+    color: black;
+}
+body.theme2 .switch label{
+    color: black;
+}
+body.theme2 .switch {
+background-color: #ffffff;
+}
+body.theme2 {
+    background-color: rgb(230, 230, 230);
+
+}
+body.theme2 .buttons{
+    background-color: #CCC5C5 ;
+    border-radius: 10px;
+    padding: 1rem;
+}
+body.theme2 .button{
+    background-color: #CDC6C6;
+    width: 444px;
+}
+body.theme2 .btn-cal {
+    grid-column: span 2;
+    background-color: orange;
+    width: 2;
+    color: white;
+}
+
+body.theme2 .btn-res {
+    grid-column: span 2;
+    background-color: #4dc3c3;
+    color: white;
+}
+
+body.theme2 .btn-del {
+    background-color: #4dc3c3;
+    color: white;
+}
+
+
+body.theme3 {
+    background-color: #17062A;
+    color: #e0e0e0;
+}
+body.theme3 .calc{
+    color: yellow;
+}
+body.theme3 .theme-label{
+    color: yellow;
+}
+body.theme3 .switch{
+    background-color: #1E0835;
+}
+body.theme3 .slider{
+    background-color: yellow;
+}
+body.theme3 .switch label {
+    color: yellow;
+}
+body.theme3 .buttons {
+    background-color: #1E0835;
+    border-radius: 10px;
+    padding: 1rem;
+}
+body.theme3 button {
+    color: yellow;
+    background-color: #1D0735;
+}
+body.theme3 .display input {
+    background-color: #1E0835;
+    color: yellow;
+}
+
+body.theme3 .btn-cal {
+    grid-column: span 2;
+    background-color: #80deea;
+    color: white;
+}
+
+body.theme3 .btn-res {
+    grid-column: span 2;
+    background-color: #6832fc;
+    color: white;
+}
+
+body.theme3 .btn-del {
+    background-color: #6f3aff;
+    color: white;
+}
